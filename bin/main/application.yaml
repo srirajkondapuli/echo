@@ -1,0 +1,43 @@
+server:
+  port: 8000
+
+spring:
+
+     
+  application:
+    name: EchoApplication
+  main:
+    allow-bean-definition-overriding: true
+    lazy-initialization: true
+    # web-application-type: none
+logging:
+  level:
+    root: INFO
+    org.springframework: DEBUG
+
+kubernetes:
+  secretsmanager:
+    enabled: false
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: configprops, beans, mappings, env, health, refresh, httptrace
+  endpoint:
+    info:
+      enabled: true
+    mappings:
+      enabled: true
+    beans:
+      enabled: true
+
+    health:
+      show-details: always
+      probes:
+        enabled: true
+
+schema:
+  validation:
+    enabled: false
+
